@@ -19,6 +19,7 @@
     "istanbul": "^0.4.2",
     "nodemon": "^1.9.0",
     "shot": "^3.0.1",
-    "tape": "^4.4.0"
+    "tape": "^4.4.0",
+    "wrapping-tape": "0.0.3"
   }
 }
