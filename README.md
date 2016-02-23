@@ -8,13 +8,6 @@
 A chat room built using socket.io, redis and node
 
 
-
-# socket-tutorial
-a socket io tutorial
-
-
-
-
 Some initial sketches:
 
 ![readme chatroom copy](https://cloud.githubusercontent.com/assets/14013616/13260413/3d45b792-da53-11e5-81c2-45e0c24bccd7.jpg)
