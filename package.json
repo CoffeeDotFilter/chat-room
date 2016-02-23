@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "tape ./tests/*",
+    "coverage": "istanbul cover tape ./tests/*",
+    "start": "nodemon ./server/server.js"
   },
   "author": "",
   "license": "ISC",
@@ -13,6 +15,8 @@
     "socket.io": "^1.4.5"
   },
   "devDependencies": {
+    "codecov": "^1.0.1",
+    "istanbul": "^0.4.2",
     "nodemon": "^1.9.0",
     "shot": "^3.0.1",
     "tape": "^4.4.0"
