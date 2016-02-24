@@ -20,6 +20,14 @@ function router(request, response){
 var server = http.createServer(router).listen(port);
 console.log('listening on http://localhost:' + port);
 
+var io = require('socket.io')(server);
+
+io.on('connection', function(socket) {
+	socket.on('message', function(msg){
+    	io.sockets.emit('message', msg);
+  	});
+});
+
 module.exports = {
 	server: server,
 	router: router
