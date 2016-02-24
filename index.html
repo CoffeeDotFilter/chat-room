@@ -7,15 +7,18 @@
 <body>
 	<div class="login-container" id="login-container">
 		<h1>Login to our amazing chat room</h1>
-		<input id="username" type="text"></input>
-		<input id="password" type="text"></input>
-		<button id="login">login</button>
+		<form action="/signup" method="POST">
+			<input id="username" type="text" name="username"></input>
+			<input id="password" type="text" name="password"></input>
+			<button id="login" type="submit">login</button>
+		</form>
 	</div>
 
-	<div id="chat-container">
+	<div class="chat-container" id="chat-container">
 		<input id="message"></input>
 		<button id="send">Send</button>
 	</div>
-	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+<!-- 	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+ -->	<script type="text/javascript" src="script.js"></script>
 </body>
 </html>

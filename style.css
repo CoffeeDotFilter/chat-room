@@ -3,5 +3,9 @@ body {
 }
 
 .login-container {
+	/*display: none;*/
+}
+
+.chat-container {
 	display: none;
 }

@@ -2,6 +2,7 @@ var http = require("http");
 var port = 4000;
 var fs = require('fs');
 var handler = require('./handler.js');
+var redisFunctions = require('./redis.js');
 
 function router(request, response){
 	var url = request.url;
@@ -9,6 +10,8 @@ function router(request, response){
 		handler.home(request, response);
 	} else if (url.indexOf('.') > -1) {
 		handler.resource(request, response);
+	} else if (url.indexOf('signup') > -1) {
+		handler.signup(request, response);
 	} else {
 		handler.notFound(request, response);
 	}
