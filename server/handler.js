@@ -1,4 +1,6 @@
 var fs = require('fs');
+var querystring = require('querystring');
+var redisFunctions = require('./redis.js');
 
 function home(request, response){
 	fs.readFile(__dirname + '/../index.html', function(err, file) {
@@ -23,6 +25,19 @@ function resource(request, response) {
 	});
 }
 
+function signup(request, response) {
+	var data = '';
+	request.on('data', function(chunk) {
+		data += chunk;
+	});
+	request.on('end', function() {
+		response.writeHead(302, {'Location': '/', 'Content-type': 'text/html'});
+		var userObj = querystring.parse(data);
+		redisFunctions.addUser(userObj.username, userObj.password);
+		response.end();
+	});
+}
+
 function notFound(request, response) {
 	response.writeHead(404, {'Content-type': 'text/html'});
 	response.end('404 page not found');
@@ -31,5 +46,6 @@ function notFound(request, response) {
 module.exports = {
 	home:  home,
 	resource: resource,
+	signup: signup,
 	notFound: notFound	
 };

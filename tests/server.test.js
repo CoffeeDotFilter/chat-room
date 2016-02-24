@@ -43,12 +43,21 @@ tape('check that all resource files load correctly', function(t) {
 	});
 });
 
+
+tape('check that unknown resource request returns 404', function(t) {
+	t.plan(3);
+	['unknown.html', 'unknown.css', 'unknown.js'].forEach(function(fileName){
+		shot.inject(server.router, {method: 'GET', url: '/' + fileName}, function(response) {
+				t.equal(response.statusCode, 404, "Server returns 404");
+		});
+	});
+});
+
 tape('Does server return a 404 NOT FOUND for an unknown url?', function(t){
 	shot.inject(server.router, {method: 'GET', url: '/unknownURl'}, function(response){
 		t.equal(response.statusCode, 404, "Server returns 404");
 		t.end();
 	});
-
 });
 
 tape.onFinish(function(){
