@@ -1,5 +1,3 @@
-// 1. Can a user connect?
-
 var tape = require('tape');
 var server = require('../server/server.js').server;
 var io = require('socket.io-client');
