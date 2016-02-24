@@ -3,7 +3,7 @@ body {
 }
 
 .login-container {
-	/*display: none;*/
+	display: none;
 }
 
 .chat-container {
