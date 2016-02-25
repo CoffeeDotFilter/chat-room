@@ -23,18 +23,32 @@ console.log('listening on http://localhost:' + port);
 var io = require('socket.io')(server);
 
 io.on('connection', function(socket) {
+	redisFunctions.getChatHistory(function(data){
+		socket.emit('history', data);
+	});
+	redisFunctions.getCode(function(data) {
+		socket.emit('codeHistory', data);
+	});
 	socket.on('message', function(msg){
+		redisFunctions.addUserChat(msg);
     	io.emit('message', msg);
   	});
   	socket.on('codeChange', function(code) {
   		socket.broadcast.emit('codeChange', code);
   	});
+  	socket.on('saveCode', function(code) {
+  		redisFunctions.saveCode(code);
+  	});
   	socket.on('typing', function() {
   		socket.broadcast.emit('typing');
+  	});
+  	socket.on('username', function(username) {
+  		io.emit('username', username);
   	});
 });
 
 module.exports = {
 	server: server,
-	router: router
+	router: router,
+	io: io
 };
