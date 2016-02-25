@@ -64,6 +64,57 @@ tests.module1('server can add entries to db', function(t) {
 	});
 });
 
+tests.module1('Chat can be added to database', function(t) {
+	
+	var message = '{"username":"afa","timestamp":1456420724436,"message":"dddd"}';
+	redisFunctions.addUserChat(message);
+	client.ZREVRANGE('history', 0, -1, function(error, reply) {
+		if (error) {
+			console.log(error);
+		} else {
+			t.deepEqual(reply, [ '{"username":"afa","timestamp":1456420724436,"message":"dddd"}' ], 'Chat message added');
+			t.end();
+		}
+	});
+});
+
+tests.module1('Chat history can be retrieved from database', function(t) {
+	var message1 = '{"username":"Me","timestamp":1456420724436,"message":"hello"}';
+	var message2 = '{"username":"You","timestamp":1456420724484,"message":"hi!"}';
+	redisFunctions.addUserChat(message1);
+	redisFunctions.addUserChat(message2);
+	redisFunctions.getChatHistory(function(reply) {
+		t.deepEqual(reply, ['{"username":"Me","timestamp":1456420724436,"message":"hello"}', 
+						'{"username":"afa","timestamp":1456420724436,"message":"dddd"}', 
+						'{"username":"You","timestamp":1456420724484,"message":"hi!"}' ], 'Chat message retrieved!');
+		t.end();
+	});
+});
+
+tests.module1('Code can be added to database', function(t) {
+	var exampleCode = 'function add(x, y) { \nreturn x + y; \n}';
+	redisFunctions.saveCode(exampleCode);
+	client.ZREVRANGE('codeHistory', 0, -1, function(error, reply) {
+		if (error) {
+			console.log(error);
+		} else {
+			t.deepEqual(reply, [ 'function add(x, y) { \nreturn x + y; \n}' ], 'Code added!');
+			t.end();
+		}
+	});
+});
+
+tests.module1('Code history can be retrieved from database (only most recent code)', function(t) {
+	var exampleCode1 = 'function add(x, y) { \nreturn x + y; \n}';
+	var exampleCode2 = 'function addAndDouble(x, y) { \nx = 2 * x; \ny = 2 * y; \nreturn x + y; \n}';
+	redisFunctions.saveCode(exampleCode1);
+	redisFunctions.saveCode(exampleCode2);
+	redisFunctions.getCode(function(reply) {
+		t.deepEqual(reply, [ 'function addAndDouble(x, y) { \nx = 2 * x; \ny = 2 * y; \nreturn x + y; \n}' ], 'Chat message retrieved!');
+		t.end();
+	});
+});
+
 tests.module1('final teardown', function(t) {
 	client.end();
 	t.end();

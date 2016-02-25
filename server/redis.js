@@ -27,7 +27,7 @@ function addUserChat(message) {
 		if (error) {
 			console.log(error);
 		} else {
-			console.log(reply);
+			console.log('Add user message success: ' + reply);
 		}
 	});
 }
@@ -38,7 +38,7 @@ function saveCode(code) {
 		if(error) {
 			console.log(error);
 		} else {
-			console.log(reply);
+			console.log('Save code success: ' + reply);
 		}
 	});
 }
