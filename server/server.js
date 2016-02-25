@@ -4,7 +4,7 @@ var fs = require('fs');
 var handler = require('./handler.js');
 var redisFunctions = require('./redis.js');
 
-function router(request, response){
+function router(request, response) {
 	var url = request.url;
 	if (url.length === 1) {
 		handler.home(request, response);
