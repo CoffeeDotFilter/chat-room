@@ -21,10 +21,9 @@ function resource(request, response) {
 			response.end();
 		} else {
 			var ext = request.url.split('.')[1];
-			var contentType = 'text/';
 			ext = (ext === 'js') ? 'javascript' : ext;
 			response.writeHead(200, {
-				'Content-type': contentType + ext
+				'Content-type': 'text/' + ext
 			});
 			response.end(content);
 		}
