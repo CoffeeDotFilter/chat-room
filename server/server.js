@@ -24,7 +24,10 @@ var io = require('socket.io')(server);
 
 io.on('connection', function(socket) {
 	socket.on('message', function(msg){
-    	io.sockets.emit('message', msg);
+    	io.emit('message', msg);
+  	});
+  	socket.on('codeChange', function(code) {
+  		socket.broadcast.emit('codeChange', code);
   	});
 });
 

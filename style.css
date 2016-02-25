@@ -9,3 +9,9 @@ body {
 .chat-container {
 	/*display: none;*/
 }
+
+.codeArea {
+	background-color: black;
+	color: white;
+	font-family: monospace;
+}
