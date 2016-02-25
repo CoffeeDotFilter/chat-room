@@ -90,7 +90,7 @@ tape('check that unknown resource request returns 404', function(t) {
             url: '/' + fileName
         }, function(response) {
             t.equal(response.statusCode, 404,
-                "Server returns 404");
+                "Server returns 404 for /"+fileName);
         });
     });
 });

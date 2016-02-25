@@ -12,7 +12,7 @@ function home(request, response) {
 }
 
 function resource(request, response) {
-	fs.readFile(__dirname + '/../' + request.url, function(error, content) {
+	fs.readFile(__dirname + '/..' + request.url, function(error, content) {
 		if (error) {
 			console.log(error);
 			response.writeHead(404, {
@@ -20,7 +20,8 @@ function resource(request, response) {
 			});
 			response.end();
 		} else {
-			var ext = request.url.split('.')[1];
+			var urlArray = request.url.split('.');
+			var ext = urlArray[urlArray.length-1];
 			ext = (ext === 'js') ? 'javascript' : ext;
 			response.writeHead(200, {
 				'Content-type': 'text/' + ext

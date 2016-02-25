@@ -6,23 +6,24 @@
 </head>
 <body>
 	<div class="login-container" id="login-container">
-		<h1>Login to our amazing chat room</h1>
-		<form action="/signup" method="POST">
+		<div class="text-container">
+			<h1>Login to our amazing chat room</h1>
 			<input id="username" type="text" name="username"></input>
-			<input id="password" type="text" name="password"></input>
-			<button id="login" type="submit">login</button>
-		</form>
+			<button id="login" type="submit">login</button>	
+		</div>
 	</div>
 
-	<div class="chat-container" id="chat-container">
-		<input id="message"></input>
-		<button id="send">Send</button>
-	</div>
-	<div id="messages">
-		
-	</div>
-	<div class="code">
-		<textarea id="codeArea" class="codeArea" rows="10" cols="70"></textarea>
+	<div class="chat-container hidden" id="chat-container">
+		<div class="code">
+			<textarea id="codeArea" class="codeArea" rows="10" cols="70"></textarea>
+		</div>
+		<div class="chat">
+			<input id="message"></input>
+			<button id="send">Send</button>
+			<div id="messages">
+				
+			</div>
+		</div>
 	</div>
 	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
 	<script type="text/javascript" src="script.js"></script>
