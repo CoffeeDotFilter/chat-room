@@ -3,7 +3,6 @@
 var tape = require('tape');
 var server = require('../server/server.js').server;
 var io = require('socket.io-client');
-var socketFunctions = require('../server/sockets.js');
 
 var options = {
 	transports: ['websocket'],
@@ -85,7 +84,7 @@ tape('Should be able to detect when user is typing', function(t) {
 		setTimeout(function() {
 			client1.disconnect();
 			t.end();
-		}, 300);
+		}, 100);
 	};
 
 	client1.on('connect', function() {

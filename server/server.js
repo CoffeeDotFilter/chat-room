@@ -29,6 +29,9 @@ io.on('connection', function(socket) {
   	socket.on('codeChange', function(code) {
   		socket.broadcast.emit('codeChange', code);
   	});
+  	socket.on('typing', function() {
+  		socket.broadcast.emit('typing');
+  	});
 });
 
 module.exports = {
