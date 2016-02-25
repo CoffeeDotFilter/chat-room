@@ -1,10 +1,12 @@
-* {
-	/*border: 1px solid red;*/
+body {
+	margin: 0;
+	font-family: courier;
 }
 
-body {
-	background-color: lightgreen;
-	margin: 0;
+.headline {
+	font-size: 1.5em;
+	text-align: center;
+	margin-left: -15%;
 }
 
 .login-container {
@@ -17,6 +19,21 @@ body {
 
 #messages li {
 	list-style: none;
+	padding: 0.7em 1.7em;
+	font-size: 0.7em;
+	margin: 1.4em;
+	background-color: #55FFDD;
+	border-radius: 1.6em;
+	word-wrap: break-word;
+	color: #0D5467;
+}
+
+#messages li:nth-child(3n) {
+	background-color: #A8F5FF;
+}
+
+#messages li:nth-child(3n-1) {
+	background-color: #03A9F4;
 }
 
 .text-container {
@@ -30,15 +47,73 @@ body {
 
 .chat-container {
 	z-index: 1;
-	margin-top: 100px;
+	margin: 5vh 0 0 5%;
+}
+
+.send-container {
+	position: fixed;
+	bottom: 3%;
+	right: 8%;
+	width: 36%;
+}
+
+.message-input {
+	width: 80%;
+	border-radius: 0.6em;
+	height: 2.4em;
+	border: none;
+	padding: 0.3em;
+	background-color: #091456;
+	color: #fff;
+}
+
+.send-button {
+	width: 15%;
+	float: right;
+	background-color: #091456;
+	border: none;
+	border-radius: 0.6em;
+	padding: 1em;
+	box-sizing: border-box;
+	color: #fff;
 }
 
 .hidden {
 	display: none;
 }
 
+.code {
+	width: 49%;
+	float: left;
+}
+
+.chat {
+	float: right;
+	padding: 1,2em;
+    width: 51%;
+    height: 100vh;
+    margin-top: -5vh;
+    margin-left: 0%;
+    position: relative;
+    background-color: #3B63DC;
+}
+
 .codeArea {
-	background-color: black;
+	max-width: 90%;
+	background-color: #3B63DC;
 	color: white;
 	font-family: monospace;
+	height: 76vh;
+	border-radius: 3em;
+	font-size: 1.1em;
+	padding: 3.4em;
+	outline: none;
+	box-sizing: border-box;
+	overflow-y: scroll;
+}
+
+@media (max-device-width: 600px) {
+	.codeArea {
+		font-size: 0.6em;
+	}
 }

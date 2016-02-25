@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Chat Room</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
@@ -9,19 +10,20 @@
 		<div class="text-container">
 			<h1>Login to our amazing chat room</h1>
 			<input id="username" type="text" name="username"></input>
-			<button id="login" type="submit">login</button>	
+			<button id="login" type="submit">login</button>
 		</div>
 	</div>
 
 	<div class="chat-container hidden" id="chat-container">
 		<div class="code">
+			<h1 class="headline">Chatters and Coders</h1>
 			<textarea id="codeArea" class="codeArea" rows="10" cols="70"></textarea>
 		</div>
 		<div class="chat">
-			<input id="message"></input>
-			<button id="send">Send</button>
-			<div id="messages">
-				
+			<div id="messages"></div>
+			<div class="send-container">
+				<input id="message" class="message-input" type="text"></input>
+				<button id="send" class="send-button">Send</button>
 			</div>
 		</div>
 	</div>
