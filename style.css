@@ -53,7 +53,7 @@ body {
 .send-container {
 	position: fixed;
     bottom: 3%;
-    right: 3%;
+    right: 2.5%;
     width: 42%;
 }
 
@@ -88,7 +88,7 @@ body {
 .chat {
 	float: right;
     padding: 1.2em;
-    width: 51%;
+    width: 47%;
     min-height: 100vh;
     margin-top: -5vh;
     position: static;
