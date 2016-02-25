@@ -52,9 +52,9 @@ body {
 
 .send-container {
 	position: fixed;
-	bottom: 3%;
-	right: 8%;
-	width: 36%;
+    bottom: 3%;
+    right: 3%;
+    width: 42%;
 }
 
 .message-input {
@@ -65,6 +65,7 @@ body {
 	padding: 0.3em;
 	background-color: #091456;
 	color: #fff;
+	outline: none;
 }
 
 .send-button {
@@ -76,26 +77,31 @@ body {
 	padding: 1em;
 	box-sizing: border-box;
 	color: #fff;
+	outline: none;
 }
 
 .hidden {
 	display: none;
 }
 
-.code {
-	width: 49%;
-	float: left;
-}
 
 .chat {
 	float: right;
-	padding: 1,2em;
+    padding: 1.2em;
     width: 51%;
-    height: 100vh;
+    height: 100%;
     margin-top: -5vh;
     margin-left: 0%;
-    position: relative;
+    position: static;
+    right: 0;
     background-color: #3B63DC;
+}
+
+.code {
+	width: 46%;
+    left: 3.8%;
+    overflow: hidden;
+    position: fixed;
 }
 
 .codeArea {
@@ -109,7 +115,7 @@ body {
 	padding: 3.4em;
 	outline: none;
 	box-sizing: border-box;
-	overflow-y: scroll;
+	overflow: auto;
 }
 
 @media (max-device-width: 600px) {
