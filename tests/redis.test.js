@@ -9,7 +9,9 @@ var client;
 tests.module1 = tape({
 	setup: function(t) {
 		client = redisFunctions.client;
-		client.select(3, function(){console.log('connected to db no. 3');});
+		client.select(3, function() {
+			console.log('connected to db no. 3');
+		});
 		t.end();
 	},
 	teardown: function(t) {
@@ -17,8 +19,8 @@ tests.module1 = tape({
 	}
 });
 
-tests.module1('test can write list to db', function(t){
-	var array = ['1', '2', '3','4','5'];
+tests.module1('test can write list to db', function(t) {
+	var array = ['1', '2', '3', '4', '5'];
 	var listName = 'testList';
 	client.RPUSH(listName, array);
 	client.LRANGE(listName, 0, -1, function(error, reply) {
@@ -33,7 +35,9 @@ tests.module1('username and password can be added to db', function(t) {
 	var username = 'andrew';
 	var password = 12345;
 	redisFunctions.addUser(username, password, client);
-	var expected = {'andrew': '12345'};
+	var expected = {
+		'andrew': '12345'
+	};
 	client.HGETALL('users', function(error, reply) {
 		t.ok(!error, 'assert error is empty');
 		t.deepEqual(reply, expected, 'user has been added to db!');
@@ -43,8 +47,14 @@ tests.module1('username and password can be added to db', function(t) {
 });
 
 tests.module1('server can add entries to db', function(t) {
-	shot.inject(server.router, {method: 'POST', url: '/signup', payload: 'username=andrew&password=12345'}, function(response) {
-		var expected = {'andrew': '12345'};
+	shot.inject(server.router, {
+		method: 'POST',
+		url: '/signup',
+		payload: 'username=andrew&password=12345'
+	}, function(response) {
+		var expected = {
+			'andrew': '12345'
+		};
 		client.HGETALL('users', function(error, reply) {
 			t.ok(!error, 'assert error is empty');
 			t.deepEqual(reply, expected, 'server adds user to DB!');
