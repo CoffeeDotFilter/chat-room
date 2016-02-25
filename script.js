@@ -27,7 +27,7 @@
         msg.timestamp = new Date(msg.timestamp).toUTCString();
         msg.timestamp = msg.timestamp.substr(0, msg.timestamp.length-4);
         message.innerHTML = msg.timestamp + '\n' + msg.username + ': ' + msg.message;
-        messageBox.appendChild(message);
+        messageBox.insertBefore(message, messageBox.firstChild);
     }
 
     // Listens for changes to codeArea text box, emits event
@@ -38,7 +38,7 @@
             var that = e.target;
             var s = that.selectionStart;
             that.value = that.value.substring(0,that.selectionStart) + "\t" + that.value.substring(that.selectionEnd);
-            that.selectionEnd = s+1; 
+            that.selectionEnd = s+1;
         }
 
         setTimeout(function(){
@@ -72,9 +72,9 @@
     });
 
     socket.on('history', function(data) {
-        data.forEach(function(x) {
-            appendMessage(x);
-        });
+        for (var i = 0; i < 5; i ++) {
+			appendMessage(data[i])
+		}
     });
 
     socket.on('codeHistory', function(data) {
