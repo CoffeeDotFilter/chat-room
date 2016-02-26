@@ -74,8 +74,9 @@
 	});
 
 	socket.on('history', function(data) {
-		for (var i = 0; i < 5; i++) {
-			appendMessage(data[i])
+		var i = data.length - 10;
+		for (i; i < data.length; i++) {
+			appendMessage(data[i]);
 		}
 	});
 
