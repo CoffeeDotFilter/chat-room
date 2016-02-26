@@ -1,11 +1,16 @@
-# chat-room
+# chatters and coders
+
 
 [![Build Status](https://travis-ci.org/threeLoops/chat-room.svg?branch=master)](https://travis-ci.org/threeLoops/chat-room)
 [![codecov.io](https://codecov.io/github/threeLoops/chat-room/coverage.svg?branch=master)](https://codecov.io/github/threeLoops/chat-room?branch=master)
 [![Dependency Status](https://david-dm.org/threeloops/chat-room.svg)](https://david-dm.org/threeloops/chat-room)
 [![devDependency Status](https://david-dm.org/threeloops/chat-room/dev-status.svg)](https://david-dm.org/threeloops/chat-room#info=devDependencies)
 
-A chat room built using socket.io, redis and node
+Chatters and coders is a realtime chat application built with node.js, socket.io and redis. It lets you edit code whilst chatting to your friends!
+
+### Why?
+
+Because it's great to chat in realtime! And socket.io makes this possible by emitting events over a web socket that can be listened to on the server and any other connected clients. Magic! :tada::tada: 
 
 
 Some initial sketches:
