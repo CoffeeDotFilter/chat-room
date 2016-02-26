@@ -1,5 +1,5 @@
 var http = require("http");
-var port = 4000;
+var port = process.env.PORT || 4000;
 var fs = require('fs');
 var handler = require('./handler.js');
 var redisFunctions = require('./redis.js');
