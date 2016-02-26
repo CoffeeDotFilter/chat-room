@@ -1,5 +1,10 @@
-var redis = require('redis');
-var client = redis.createClient();
+if(process.env.REDISTOGO_URL) {
+	var rtg = require('url').parse(process.env.REDISTOGO_URL);
+	var client = require('redis').createClient(rtg.port, rtg.hostname);
+} else {
+	var redis = require('redis');
+	var client = redis.createClient();
+}
 
 function addUser(username, password) {
 	client.HSET('users', username, password, function(error, reply) {
