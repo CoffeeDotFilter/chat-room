@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "tape ./tests/*",
-    "coverage": "istanbul cover tape ./tests/*",
+    "coverage": "istanbul cover tape ./tests/* && codecov",
     "start": "node ./server/server.js"
   },
   "author": "",

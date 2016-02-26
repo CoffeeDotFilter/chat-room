@@ -31,7 +31,8 @@
 		msg.timestamp = new Date(msg.timestamp).toUTCString();
 		msg.timestamp = msg.timestamp.substr(0, msg.timestamp.length - 4);
 		message.innerHTML = msg.timestamp + '\n' + msg.username + ': ' + msg.message;
-		messageBox.insertBefore(message, messageBox.firstChild);
+		messageBox.appendChild(message);
+        messageBox.scrollTop = messageBox.scrollHeight;
 	}
 
 	// Listens for changes to codeArea text box, emits event
@@ -66,15 +67,20 @@
 	});
 
 	// Login emits username event and saves username.
-	document.getElementById('login').addEventListener('click', function(e) {
-		e.preventDefault();
-		var input = document.getElementById('username');
-		console.log(input.value);
-		username = input.value;
-		socket.emit('username', username);
-		document.getElementById('login-container').classList.add('hidden');
-		document.getElementById('chat-container').classList.remove('hidden');
-	});
+	document.getElementById('login').addEventListener('click', login);
+    document.getElementById('username').addEventListener('keydown', function(e) {
+        if(e.keyCode === 13) {
+            login();
+        }
+    });
+
+    function login() {
+        var input = document.getElementById('username');
+        username = input.value;
+        socket.emit('username', username);
+        document.getElementById('login-container').classList.add('hidden');
+        document.getElementById('chat-container').classList.remove('hidden');
+    }
 
 	socket.on('history', function(data) {
 		var i = data.length - 10;
