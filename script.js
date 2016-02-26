@@ -67,20 +67,14 @@
 	});
 
 	// Login emits username event and saves username.
-	document.getElementById('login').addEventListener('click', login);
-    document.getElementById('username').addEventListener('keydown', function(e) {
-        if(e.keyCode === 13) {
-            login();
-        }
-    });
-
-    function login() {
-        var input = document.getElementById('username');
+	document.getElementById('login').addEventListener('submit', function(e) {
+		e.preventDefault();
+		var input = document.getElementById('username');
         username = input.value;
         socket.emit('username', username);
         document.getElementById('login-container').classList.add('hidden');
         document.getElementById('chat-container').classList.remove('hidden');
-    }
+	});
 
 	socket.on('history', function(data) {
 		var i = data.length - 10;
