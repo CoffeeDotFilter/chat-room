@@ -5,8 +5,10 @@
 
 	// Gets message content and emits message event with object
 	var send = document.getElementById('send');
-	send.addEventListener('click', function(e) {
-		// e.preventDefault();
+	send.addEventListener('submit', function(e) {
+
+		// if(e.keyCode === 13){
+		e.preventDefault();
 		var chatMessage = document.getElementById('message');
 		var msgObj = {
 			username: username,
@@ -15,6 +17,7 @@
 		};
 		socket.emit('message', JSON.stringify(msgObj));
 		chatMessage.value = '';
+
 	});
 
 	// Listens for message object and appends this in correct format
@@ -64,20 +67,14 @@
 	});
 
 	// Login emits username event and saves username.
-	document.getElementById('login').addEventListener('click', login);
-    document.getElementById('username').addEventListener('keydown', function(e) {
-        if(e.keyCode === 13) {
-            login();
-        }
-    });
-
-    function login() {
-        var input = document.getElementById('username');
+	document.getElementById('login').addEventListener('submit', function(e) {
+		e.preventDefault();
+		var input = document.getElementById('username');
         username = input.value;
         socket.emit('username', username);
         document.getElementById('login-container').classList.add('hidden');
         document.getElementById('chat-container').classList.remove('hidden');
-    }
+	});
 
 	socket.on('history', function(data) {
 		var i = data.length - 10;

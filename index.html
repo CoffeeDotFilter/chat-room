@@ -9,8 +9,10 @@
 	<div class="login-container" id="login-container">
 		<div class="text-container">
 			<h1>Login to our amazing chat room</h1>
-			<input id="username" type="text" name="username"></input>
-			<button id="login" type="submit">login</button>
+			<form id="login">
+				<input id="username" type="text" name="username"></input>
+				<button type="submit">login</button>
+			</form>
 		</div>
 	</div>
 
@@ -22,8 +24,10 @@
 		<div class="chat">
 			<div id="messages"></div>
 			<div class="send-container">
-				<input id="message" class="message-input" type="text"></input>
-				<button id="send" class="send-button">Send</button>
+				<form id="send">
+					<input id="message" class="message-input" type="text"></input>
+					<button type="submit" class="send-button">Send</button>
+				</form>
 			</div>
 		</div>
 	</div>
