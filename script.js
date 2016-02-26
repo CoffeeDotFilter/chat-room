@@ -5,8 +5,10 @@
 
 	// Gets message content and emits message event with object
 	var send = document.getElementById('send');
-	send.addEventListener('click', function(e) {
-		// e.preventDefault();
+	send.addEventListener('submit', function(e) {
+
+		// if(e.keyCode === 13){
+		e.preventDefault();
 		var chatMessage = document.getElementById('message');
 		var msgObj = {
 			username: username,
@@ -15,6 +17,7 @@
 		};
 		socket.emit('message', JSON.stringify(msgObj));
 		chatMessage.value = '';
+
 	});
 
 	// Listens for message object and appends this in correct format
