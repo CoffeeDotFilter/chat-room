@@ -28,6 +28,12 @@ body {
 	color: #0D5467;
 }
 
+#messages {
+	max-height: 86vh;
+    overflow-y: auto;
+    margin-top: 0.5em;
+}
+
 #messages li:nth-child(3n) {
 	background-color: #A8F5FF;
 }
@@ -91,7 +97,8 @@ body {
     width: 47%;
     min-height: 100vh;
     margin-top: -5vh;
-    position: static;
+    position: fixed;
+    right: 0;
     background-color: #3B63DC;
 }
 
