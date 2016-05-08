@@ -1,11 +1,11 @@
 # chatters and coders
 
 
-[![Build Status](https://travis-ci.org/threeLoops/chat-room.svg?branch=master)](https://travis-ci.org/threeLoops/chat-room)
-[![codecov.io](https://codecov.io/github/threeLoops/chat-room/coverage.svg?branch=master)](https://codecov.io/github/threeLoops/chat-room?branch=master)
-[![Codecrystal](https://img.shields.io/badge/code-crystal-5CB3FF.svg)](http://codecrystal.herokuapp.com/crystalise/threeloops/chat-room/master)
-[![Dependency Status](https://david-dm.org/threeloops/chat-room.svg)](https://david-dm.org/threeloops/chat-room)
-[![devDependency Status](https://david-dm.org/threeloops/chat-room/dev-status.svg)](https://david-dm.org/threeloops/chat-room#info=devDependencies)
+[![Build Status](https://travis-ci.org/CoffeeDotFilter/chat-room.svg?branch=master)](https://travis-ci.org/threeLoops/chat-room)
+[![codecov.io](https://codecov.io/github/CoffeeDotFilter/chat-room/coverage.svg?branch=master)](https://codecov.io/github/threeLoops/chat-room?branch=master)
+[![Codecrystal](https://img.shields.io/badge/code-crystal-5CB3FF.svg)](http://codecrystal.herokuapp.com/crystalise/CoffeeDotFilter/chat-room/master)
+[![Dependency Status](https://david-dm.org/CoffeeDotFilter/chat-room.svg)](https://david-dm.org/threeloops/chat-room)
+[![devDependency Status](https://david-dm.org/CoffeeDotFilter/chat-room/dev-status.svg)](https://david-dm.org/threeloops/chat-room#info=devDependencies)
 
 Chatters and coders is a realtime chat application built with node.js, socket.io and redis. It lets you edit code whilst chatting to your friends!
 
